@@ -43,20 +43,15 @@
 			var app = new Vue({
 				el : '#ofertas',
 				data : {
-					pedidos : [{
-								"id": 1,
-								"nomeProduto": "Apple iPhone 13 Pro Max (512 GB)",
-								"valorNegociado": 5000,
-								"dataDaEntrega": null,
-								"urlProduto": "https://www.amazon.com.br/Apple-iPhone-Pro-Max-128/dp/B09V48865W?ref_=ast_sto_dp&th=1&psc=1",
-								"urlImagem": "https://m.media-amazon.com/images/I/41fMEuRY6oL._AC_SX679_.jpg",
-								"descricao": "Verde-alpino, Desbloqueado",
-								"status": "AGUARDANDO"
-								}]
+					pedidos : []
+				},
+				mounted(){
+					axios.get('http://localhost:8080/api/pedidos/aguardando').then(response => (this.pedidos = response.data))
 				}
 			});
 		}
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
