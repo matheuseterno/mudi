@@ -42,7 +42,7 @@ public class Pedido {
 	@JsonBackReference
 	private User user;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.EAGER)
 	private List<Oferta> ofertas;
 	
 	
